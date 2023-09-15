@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #c4af9a;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -21,4 +25,45 @@ header h1 {
 
 header h2 {
   font-size: 2rem;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.instruction-section {
+  border: 1px solid rgb(199, 199, 199);
+}
+
+.instruction-section h3 {
+  padding: 10px;
+  background-color: #1e1e24;
+  color: white;
+}
+
+.instruction-section p {
+  border-top: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid rgb(199, 199, 199);
+  padding: 10px;
+}
+
+.instruction-section button {
+  padding: 10px;
+  margin: 10px;
+  width: 95%;
+  background-color: #1e1e24;
+  color: white;
+}
+
+table {
+  background-color: #fb9f89;
+}
+
+table tr {
+  display: flex;
+}
+
+table tr th {
 }
