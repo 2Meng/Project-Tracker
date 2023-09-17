@@ -30,10 +30,12 @@ header h2 {
 main {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
 .instruction-section {
+  background-color: white;
   border: 1px solid rgb(199, 199, 199);
 }
 
@@ -58,12 +60,60 @@ main {
 }
 
 table {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+table .table-headers {
+  display: flex;
   background-color: #fb9f89;
 }
 
-table tr {
-  display: flex;
+table tr th {
+  padding: 10px 200px;
 }
 
-table tr th {
+table #project-list tr td {
+  padding: 10px 200px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #ccc;
+}
+
+table tbody tr td button.remove-project {
+  padding: 5px 10px;
+  margin: 0;
+}
+
+table tbody tr td button.remove-project:hover {
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+}
+
+dialog {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  padding: 100px;
+  z-index: 10;
+}
+
+dialog h2 {
+  margin: 10px;
+}
+
+dialog label,
+input {
+  padding: 10px;
+}
+
+dialog section button {
+  margin: 10px;
+}
+
+dialog::backdrop {
+  background-color: hsla(255, 2%, 42%, 0.212);
 }

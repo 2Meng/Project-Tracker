@@ -22,14 +22,37 @@
         <p>Project Name</p>
         <p>Project Type</p>
         <p>Due Date</p>
-        <button>Add Project</button>
+        <button class="add-project">Add Project</button>
       </section>
+      <dialog data-modal class="modal">
+        <h2>Add a new project:</h2>
+        <label>Project Name</label>
+        <input
+          type="text"
+          name="name"
+          id="project-name"
+          placeholder="Enter the project's name"
+        />
+        <label>Project Type</label>
+        <input
+          type="text"
+          name="name"
+          id="project-type"
+          placeholder="Enter the project's type"
+        />
+        <label>Due Date</label>
+        <input type="date" name="dueDate" />
+        <button class="submit-project">Submit</button>
+        <button class="close-modal">Close</button>
+      </dialog>
       <table>
-        <tr>
+        <tr class="table-headers">
           <th>Name</th>
           <th>Type</th>
           <th>Due</th>
+          <th>Remove Project</th>
         </tr>
+        <tbody id="project-list"></tbody>
       </table>
     </main>
     <script src="/assets/script.js"></script>
