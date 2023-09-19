@@ -63,19 +63,34 @@ table {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
+  width: 60%;
 }
 
 table .table-headers {
   display: flex;
+  justify-content: space-around;
+  background-color: #fb9f89;
+}
+
+table .table-headers th {
+  text-align: left; /* Align text to the left within header cells */
   background-color: #fb9f89;
 }
 
 table tr th {
-  padding: 10px 200px;
+  /* Remove the fixed padding */
+  padding: 10px;
 }
 
 table #project-list tr td {
-  padding: 10px 200px;
+  /* Remove the fixed padding */
+  padding: 10px;
+}
+
+table #project-list tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 table tbody tr {

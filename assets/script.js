@@ -4,6 +4,8 @@ const closeModal = document.querySelector(".close-modal");
 const submitProject = document.querySelector(".submit-project");
 const modal = document.querySelector("[data-modal]");
 
+const projectsArrayInStorage = [];
+
 function updateDateTime() {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString();
@@ -51,6 +53,17 @@ function addProjectToTable(name, type, dueDate) {
     <td><button class="remove-project">Remove</button></td>
   `;
 
+  const projectData = {
+    name,
+    type,
+    dueDate,
+  };
+
+  projectsArrayInStorage.push(projectData);
+
+  localStorage.setItem("project", +Date.now(), JSON.stringify(projectData));
+  console.log(projectData);
+
   // Add an event listener to the remove button
   const removeButton = newRow.querySelector(".remove-project");
   removeButton.addEventListener("click", () => {
@@ -69,7 +82,39 @@ submitProject.addEventListener("click", () => {
   if (projectName && projectType && dueDate) {
     addProjectToTable(projectName, projectType, dueDate);
     modal.close();
+
+    // Clear the input fields
+    projectName.value = "";
+    projectType.value = "";
+    dueDate.value = "";
   } else {
     alert("Please fill in all fields.");
   }
 });
+
+function populateTableFromLocalStorage() {
+  const projectList = document.getElementById("project-list");
+
+  // Clear any existing rows in the table
+  projectList.innerHTML = "";
+
+  // Retrieve the array of projects from localStorage
+  const storedProjects = JSON.parse(localStorage.getItem("projects"));
+
+  if (storedProjects) {
+    // Assign the retrieved array to the projects variable
+    projectsArrayInStorage = storedProjects;
+
+    // Iterate through the array and add each project to the table
+    projectsArrayInStorage.forEach((projectData) => {
+      addProjectToTable(
+        projectData.name,
+        projectData.type,
+        projectData.dueDate
+      );
+    });
+  }
+}
+
+// Call the function to populate table data from localStorage when the page loads
+window.addEventListener("load", populateTableFromLocalStorage);
