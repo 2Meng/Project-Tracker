@@ -62,7 +62,6 @@ function addProjectToTable(name, type, dueDate) {
   projectsArrayInStorage.push(projectData);
 
   localStorage.setItem("project", +Date.now(), JSON.stringify(projectData));
-  console.log(projectData);
 
   // Add an event listener to the remove button
   const removeButton = newRow.querySelector(".remove-project");

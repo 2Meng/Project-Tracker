@@ -37,6 +37,8 @@ main {
 .instruction-section {
   background-color: white;
   border: 1px solid rgb(199, 199, 199);
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .instruction-section h3 {
@@ -60,52 +62,42 @@ main {
 }
 
 table {
-  display: flex;
-  flex-direction: column;
-  margin-top: 25px;
   width: 60%;
+  border-collapse: collapse;
+  max-height: 45px;
+  overflow-y: auto;
 }
 
-table .table-headers {
-  display: flex;
-  justify-content: space-around;
-  background-color: #fb9f89;
-}
-
-table .table-headers th {
-  text-align: left; /* Align text to the left within header cells */
-  background-color: #fb9f89;
-}
-
-table tr th {
-  /* Remove the fixed padding */
+table th,
+table td {
   padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
 }
 
-table #project-list tr td {
-  /* Remove the fixed padding */
-  padding: 10px;
+table th {
+  background-color: #fb9f89;
+  color: white;
 }
 
-table #project-list tr {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-table tbody tr {
-  border-bottom: 1px solid #ccc;
+table tr:hover {
+  background-color: #e0e0e0;
 }
 
-table tbody tr td button.remove-project {
+table td button.remove-project {
   padding: 5px 10px;
-  margin: 0;
-}
-
-table tbody tr td button.remove-project:hover {
   background-color: #e74c3c;
   color: white;
+  border: none;
   cursor: pointer;
+}
+
+table td button.remove-project:hover {
+  background-color: #c0392b;
 }
 
 dialog {
@@ -131,4 +123,40 @@ dialog section button {
 
 dialog::backdrop {
   background-color: hsla(255, 2%, 42%, 0.212);
+}
+
+@media only screen and (max-width: 1352px) {
+  table {
+    margin-top: 50px;
+    width: 80%;
+  }
+
+  dialog {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  dialog button {
+    display: block;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  table {
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  dialog {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  dialog button {
+    display: block;
+    margin: 10px;
+  }
 }
