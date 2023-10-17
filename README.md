@@ -4,7 +4,7 @@ The "Project-Tracker" allows the user to add projects to their schedule and stor
 
 This application is focused towards learning DOM manipulation, click events, button events and how to use local storage.
 
-![image](https://github.com/2Meng/Project-Tracker/assets/91503750/ad751eeb-b011-4783-a880-a06f530af358)
+![image](https://github.com/2Meng/Project-Tracker/assets/91503750/a478eab3-9189-48e4-8f5e-2c65ad439db7)
 
 ## Authors
 
