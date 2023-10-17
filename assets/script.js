@@ -53,15 +53,24 @@ function addProjectToTable(name, type, dueDate) {
     <td><button class="remove-project">Remove</button></td>
   `;
 
-  const projectData = {
+  projectsArrayInStorage.push({
     name,
     type,
     dueDate,
-  };
+  });
 
-  projectsArrayInStorage.push(projectData);
+  localStorage.setItem("projects", JSON.stringify(projectsArrayInStorage));
 
-  localStorage.setItem("project", +Date.now(), JSON.stringify(projectData));
+  // const projectData = {
+  //   name,
+  //   type,
+  //   dueDate,
+  // };
+
+  // projectsArrayInStorage.push(projectData);
+
+  // const timestamp = Date.now();
+  // localStorage.setItem(`project-${timestamp}`, JSON.stringify(projectData));
 
   // Add an event listener to the remove button
   const removeButton = newRow.querySelector(".remove-project");
@@ -83,9 +92,9 @@ submitProject.addEventListener("click", () => {
     modal.close();
 
     // Clear the input fields
-    projectName.value = "";
-    projectType.value = "";
-    dueDate.value = "";
+    document.getElementById("project-name").value = "";
+    document.getElementById("project-type").value = "";
+    document.querySelector("input[name='dueDate']").value = "";
   } else {
     alert("Please fill in all fields.");
   }
@@ -97,15 +106,15 @@ function populateTableFromLocalStorage() {
   // Clear any existing rows in the table
   projectList.innerHTML = "";
 
+  // Clear the projects array before adding stored projects
+  projectsArrayInStorage.length = 0;
+
   // Retrieve the array of projects from localStorage
   const storedProjects = JSON.parse(localStorage.getItem("projects"));
 
   if (storedProjects) {
-    // Assign the retrieved array to the projects variable
-    projectsArrayInStorage = storedProjects;
-
     // Iterate through the array and add each project to the table
-    projectsArrayInStorage.forEach((projectData) => {
+    storedProjects.forEach((projectData) => {
       addProjectToTable(
         projectData.name,
         projectData.type,
