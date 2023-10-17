@@ -61,20 +61,21 @@ function addProjectToTable(name, type, dueDate) {
 
   localStorage.setItem("projects", JSON.stringify(projectsArrayInStorage));
 
-  // const projectData = {
-  //   name,
-  //   type,
-  //   dueDate,
-  // };
-
-  // projectsArrayInStorage.push(projectData);
-
-  // const timestamp = Date.now();
-  // localStorage.setItem(`project-${timestamp}`, JSON.stringify(projectData));
-
   // Add an event listener to the remove button
   const removeButton = newRow.querySelector(".remove-project");
   removeButton.addEventListener("click", () => {
+    const index = projectsArrayInStorage.findIndex(
+      (project) =>
+        project.name === newRow.children[0].textContent &&
+        project.type === newRow.children[1].textContent &&
+        project.dueDate === newRow.children[2].textContent
+    );
+
+    if (index > -1) {
+      projectsArrayInStorage.splice(index, 1);
+      localStorage.setItem("projects", JSON.stringify(projectsArrayInStorage));
+    }
+
     newRow.remove();
   });
 
