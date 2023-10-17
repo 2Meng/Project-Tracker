@@ -13,7 +13,7 @@ This application is focused towards learning DOM manipulation, click events, but
 
 ## Deployment
 
-To deploy this project, visit the github deployed website [here!]()
+To deploy this project, visit the github deployed website [here!](https://2meng.github.io/Project-Tracker/)
 
 
 ## Roadmap
